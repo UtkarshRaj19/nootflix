@@ -9,7 +9,7 @@ export default function Document() {
         <Script
           async={true}
           strategy="beforeInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-QSFP9BGN83"
+          src="https://www.googletagmanager.com/gtag/js?id=G-HHDPVJGZSB"
         />
         <Script
           id="gtag-init"
@@ -20,7 +20,7 @@ export default function Document() {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
   
-            gtag('config', 'G-QSFP9BGN83');`,
+            gtag('config', 'G-HHDPVJGZSB');`,
           }}
         />
       </Head>
