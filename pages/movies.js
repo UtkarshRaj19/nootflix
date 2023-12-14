@@ -7,42 +7,42 @@ import { useEffect, useState } from "react";
 
 export const metadata = {
   title: 'Movie Library',
-  icons:{
-    icon:"/favicon.ico"
+  icons: {
+    icon: "/favicon.ico"
   }
 }
 export default function Home() {
-  const [data,setData]=useState([]);
-  const [loading,setLoading]=useState(false);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(()=>{
-  getMovie();
-  },[])
+  useEffect(() => {
+    getMovie();
+  }, [])
 
-  const getMovie=()=>{
+  const getMovie = () => {
     setLoading(true)
     var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Content-Type", "application/json");
 
-  var raw = "";
+    var raw = "";
 
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-  };
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
 
-  fetch("https://s2fwl9bcyl.execute-api.ap-south-1.amazonaws.com/dev/movieslist", requestOptions)
-  .then(response => response.json())
-  .then(result => setData(result.data))
-  .catch(error => console.log('error', error)).finally(()=>{setLoading(false)})
+    fetch("https://s2fwl9bcyl.execute-api.ap-south-1.amazonaws.com/dev/movieslist", requestOptions)
+      .then(response => response.json())
+      .then(result => setData(result.data))
+      .catch(error => console.log('error', error)).finally(() => { setLoading(false) })
   }
   return (
-  <>  
+    <>
       <Head>
         <title>{metadata.title}</title>
-      </Head>  
+      </Head>
       <div
         className="w-full h-full min-h-screen bg-zinc-50 "
         style={{
@@ -52,9 +52,9 @@ export default function Home() {
           backgroundPosition: 'center',
         }}
       >
-      <Navbar/>
-    {  loading?<div><Loading/></div>: <>{data.length>0?<BlockList data={data}/>:<No_Data_Movie/>}</>}
+        <Navbar />
+        {loading ? <div><Loading /></div> : <>{data.length > 0 ? <BlockList data={data} /> : <No_Data_Movie />}</>}
       </div>
-  </>
+    </>
   );
 }
