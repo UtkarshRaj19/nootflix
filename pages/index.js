@@ -20,11 +20,11 @@ export default function Home() {
       <div
       
       >
-        <div className="w-screen absolute h-screen">
+        <div className="w-screen -z-10 absolute h-screen">
           <Image
             src={"/background.png"}
             alt=""
-            className="h-full w-full object-cover top-0"
+            className="h-full w-full -z-10 object-cover top-0"
             fill
             priority={true}
           />
